@@ -1,0 +1,63 @@
+<div class="nav-items">
+    <div class="nav-item" routerLink="side-bar/home">
+        <i class="fas fa-home"></i> 
+        <span>Home</span>
+    </div>
+
+    <span *ngIf="isUser()">
+    <div class="nav-item" routerLink="side-bar/profile">
+        <i class="fas fa-user"></i> 
+        Profile
+    </div>
+</span>
+
+    <span *ngIf="isAdmin()">
+    <div class="nav-item" routerLink="side-bar/dashboard">
+        <i class="fas fa-dashboard"></i> 
+       Dashboard
+    </div>
+    </span>
+
+    <span *ngIf="isAdmin()">
+    <div class="nav-item" routerLink="side-bar/manage">
+        <i class="fas fa-tasks"></i> 
+        Manage
+    </div></span>
+
+    <div class="nav-item" routerLink="side-bar/report"> 
+        <i class="fas fa-file-alt" ></i> 
+        <span>Report</span>
+    </div>
+
+    <span *ngIf="isUser()">
+    <div class="nav-item" routerLink="main">
+        <i class="fas fa-check-circle"></i> 
+        Verify
+    </div>
+</span>
+
+    <div class="nav-item">
+        <i class="fas fa-question-circle"></i> 
+        <span>Help</span>
+    </div>
+
+    <div class="nav-item">
+        <i class="fas fa-cog"></i> 
+        <span>Settings</span>
+    </div>  
+
+    <span *ngIf="isLoggedIn()"  (click) = "logout()">
+    <div class="nav-item">
+        <i class="fas fa-sign-out-alt"></i>
+        Logout
+    </div> 
+</span>
+
+<span *ngIf=" ! isLoggedIn()" routerLink="/" >
+    <div class="nav-item">
+        <i class="fas fa-sign-in-alt"></i>
+        Login
+    </div> 
+</span>
+
+</div>

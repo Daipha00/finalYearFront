@@ -1,0 +1,58 @@
+.content {
+    padding-top: 10px;
+  }
+
+.row{
+    display: flex;
+    gap: 10px;
+}
+mat-form-field{
+    width: 100%;
+}
+.action{
+    padding: 0px 5px 20px;
+    margin-top: 10px;
+    button {
+      flex: 1;
+     
+    }
+}
+
+.container{
+    padding: 40px;
+}
+
+.btn-image-remove{
+    position: absolute;
+    cursor: pointer;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: auto;
+    text-align: center;
+}
+
+.buttons{
+    margin-top: 20px;
+}
+
+.example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
+  

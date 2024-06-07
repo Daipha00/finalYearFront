@@ -1,0 +1,79 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+ 
+    <div class="card" style="padding: 50px; display: flex; flex-wrap: wrap; justify-content: center; max-width: 500px; margin: auto;">
+        
+  
+      <form #registerForm="ngForm" (ngSubmit)="register(registerForm)" style="display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%;">
+  
+        <mat-form-field appearance="outline" style="width: calc(50% - 10px); margin-bottom: 20px;">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="Enter your First Name" ngModel name="userFirstName" id="userFirstName">
+          <mat-icon matSuffix class="user-icon">account_circle</mat-icon> <!-- User icon -->
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" style="width: calc(50% - 10px); margin-bottom: 20px;">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Enter your Last Name" ngModel name="userLastName" id="userLastName">
+          <mat-icon matSuffix class="user-icon">account_circle</mat-icon> <!-- User icon -->
+        </mat-form-field>
+  
+        <!-- <mat-form-field appearance="outline" style="width: calc(50% - 10px); margin-bottom: 20px;">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Enter your Email" ngModel name="email" id="email">
+          <mat-icon matSuffix class="user-icon">account_circle</mat-icon> 
+        </mat-form-field> -->
+
+        <mat-form-field appearance="outline" style="width: calc(50% - 10px); margin-bottom: 20px;">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput ngModel
+                   placeholder="Ex. suza@example.com" name="email" id="email">
+          
+            <mat-error *ngIf="emailFormControl?.hasError('email') && !emailFormControl?.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl?.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          
+  
+        <!-- <mat-form-field appearance="outline" style="width: calc(50% - 10px); margin-bottom: 20px;">
+          <mat-label>Phone Number</mat-label>
+          <input matInput placeholder="Enter phone number" ngModel name="phoneNumber" id="phoneNumber">
+          <mat-icon matSuffix class="user-icon">account_circle</mat-icon> 
+        </mat-form-field> -->
+
+        <mat-form-field appearance="outline" style="width: calc(50% - 10px); margin-bottom: 20px;">
+            <mat-label>Phone Number</mat-label>
+            <input matInput type="tel" placeholder="Enter phone number" name="phoneNumber" id="phoneNumber">
+            <button mat-button matSuffix>
+              <mat-icon>phone</mat-icon>
+            </button>
+          </mat-form-field>
+          
+  
+        <mat-form-field appearance="outline" style="width: calc(50% - 10px); margin-bottom: 20px;">
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Enter your username" ngModel name="userName" id="userName">
+          <mat-icon matSuffix class="user-icon">account_circle</mat-icon> <!-- User icon -->
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" style="width: calc(50% - 10px); margin-bottom: 20px;">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter your password" ngModel name="userPassword" id="userPassword">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+  
+        <button type="submit" value="register" class="custom-button" style="width: 100%;">
+          Register
+        </button>
+  
+      </form>
+    </div>
+  </div>
+
+  

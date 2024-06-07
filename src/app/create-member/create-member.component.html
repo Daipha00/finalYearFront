@@ -1,0 +1,72 @@
+<div class="container">
+    <div mat-dialog-title>
+        <h1>Add New Member</h1>
+    </div>
+    <form #memberForm="ngForm" (ngSubmit)="onFormSubmit(memberForm)">
+    <div mat-dialog-content class="content">
+        <div class="row">
+          <mat-form-field appearance="outline">
+            <mat-label>Member Name</mat-label>
+            <input matInput name="memberName" id="memberName"  matInput placeholder="Enter member name" [(ngModel)]="member.memberName">
+          </mat-form-field>
+         
+          <mat-form-field appearance="outline">
+            <mat-label>DOB</mat-label>
+            <input matInput name="dob" [matDatepicker]="dobPicker" matInput placeholder="Enter date of birth"
+                [(ngModel)]="member.dob">
+            <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+            <mat-datepicker #dobPicker></mat-datepicker>
+        </mat-form-field>
+    </div><br>
+       
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Issue Date</mat-label>
+            <input matInput name="issueDate" [matDatepicker]="issueDatePicker" matInput placeholder="Enter issue date"
+                [(ngModel)]="member.issueDate">
+            <mat-datepicker-toggle matSuffix [for]="issueDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #issueDatePicker></mat-datepicker>
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline" style="width: 50%;">
+            <mat-label>Expiry Date</mat-label>
+            <input matInput name="expiryDate" [matDatepicker]="expiryDatePicker" matInput placeholder="Enter expiry date"
+                [(ngModel)]="member.expiryDate">
+            <mat-datepicker-toggle matSuffix [for]="expiryDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #expiryDatePicker></mat-datepicker>
+        </mat-form-field>
+    </div>
+    
+    
+        <div class="row">
+            <mat-radio-group aria-label="select an option" name="gender" [(ngModel)]="member.gender">
+                <mat-label>Gender</mat-label>
+                  <mat-radio-button value="Male">Male</mat-radio-button>
+                  <mat-radio-button value="Female">Female</mat-radio-button>
+            </mat-radio-group>
+            
+  
+        </div><br>
+          
+        <input type="file" multiple value="select" #selectFile
+        (change)="onFileSelected($event)">
+    <div class="mt-5">
+        <div class="row">
+            <mat-grid-list cols="4" rowHeight="1:1">
+                <mat-grid-tile *ngFor="let file of member.image; let i = index">
+                     <div style="position: relative;">
+                        <span class="btn-image-remove" (click)="removeImage(i)">X</span>
+                        <img [src]="file.url" width="100px" height="100px">    
+                     </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+    </div>
+    </div>
+    <div mat-dialog-actions class="action mt-4">
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button>
+        <button mat-raised-button color="danger" style="margin: 10px;"  [mat-dialog-close]="false">Cancel</button>
+    </div>
+    
+    </form>
+    </div>

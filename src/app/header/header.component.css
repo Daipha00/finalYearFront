@@ -1,0 +1,33 @@
+.header{
+    display: flex;
+    height: 90px;
+   justify-content: space-between;
+    color: #fff;
+    background-color: rgb(1, 38, 69);
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+   
+    .logo{
+        font-weight: bold;
+        font-size: 20px;
+      
+    }
+    .user{
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+      
+        .title{
+         text-align: center;
+         padding-top: 70px;
+           
+        }
+    }
+
+}
+
+.sticky-toolbar {
+    position: sticky;
+    top: 0;
+  }
